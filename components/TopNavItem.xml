@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<!-- main node which handles home screen children -->
+<component name="TopNavItem" extends="Group">
+    
+    <interface>
+    	<field id = "itemContent" type = "node" onChange = "showcontent" />
+        <field id="focusPercent" type="float" onChange="showFocus"/>
+        <field id="index" type="integer" onChange="showFocus"/>
+        <field id="itemFocused" type="integer" onChange="showFocus"/>
+    </interface>
+
+
+    <!-- main handler -->
+    <script type="text/brightscript" uri="pkg:/components/TopNavItem.brs" />
+
+        <children>
+                <Label
+                    id="itemLabel"
+                    horizAlign="left"
+                    color="#373834"
+                    height = "70"
+                    >
+                    <Font role = "font" uri = "pkg:/font/ProximaNova-Regular.otf" size="40"/>
+                    </Label>
+                <Rectangle 
+      				id = "itemcursor" 
+      				translation = "[ 0, 40 ]" 
+      				width = "200" 
+      				height = "8" 
+      				color = "#ffce00" 
+      				opacity = "0.0" />	
+        </children> 
+</component>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+
+<component name="AttrReader" extends="Task" >
+
+	<interface>
+		<field id = "contenturi" type = "uri" />
+	    <field id="content" type="node" />
+	</interface> 
+
+	<script type="text/brightscript">
+	    <![CDATA[
+		
+		function init()
+	        m.top.functionName = "getcontent"
+	    end function
+		
+    sub getcontent()
+      content = createObject("roSGNode", "ContentNode")
+      	contentxml = createObject("roXMLElement")
+      	readInternet = createObject("roUrlTransfer")
+
+      	readInternet.SetCertificatesFile("common:/certs/certificate.crt")
+    	readInternet.EnablePeerVerification(false)
+      
+      readInternet.setUrl(m.top.contenturi)
+      contentxml.parse(readInternet.GetToString())
+      if contentxml.getName()="Content"
+		
+		parentNodes = contentxml.GetChildElements()
+        
+		for each node in parentNodes
+          itemcontent = content.createChild("ContentNode")
+          itemcontent.setFields(node.getAttributes())
+			nodeChildren = node.GetChildElements()
+					for each item in nodeChildren
+						if item.getName() = "item"
+							urlNodes = itemcontent.createChild("ContentNode")
+							urlNodes.setFields(item.getAttributes())
+						end if
+					end for
+        end for
+      end if
+      m.top.content = content
+    end sub
+		]]>
+	</script>
+	
+</component>

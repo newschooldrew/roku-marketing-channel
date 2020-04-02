@@ -1,0 +1,82 @@
+<?xml version = "1.0" encoding = "utf-8" ?> 
+
+<component name = "VideoContent" extends = "ContentNode" >
+
+<children >
+
+    <ContentNode id="rowOneCV">
+        <ContentNode
+          url = "https://c.gumgum.com/ads/com/drew_test/Advertising_Week_New_York_2017_Will_Rewards_of_AI_Outweigh_the_Risks.mp4" 
+        />
+        <ContentNode 
+          url = "https://c.gumgum.com/ads/com/drew_test/GumGum_Sports_UEFA_Sponsorship_Valuation.mp4"
+          />
+        <ContentNode
+          url = "https://c.gumgum.com/ads/com/drew_test/value_of_your_sports_sponsorships.mp4"
+          />
+      </ContentNode>
+
+      <ContentNode id="rowTwoCV">
+          <ContentNode 
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" 
+          />
+            <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" 
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+          />
+      </ContentNode>
+
+      <ContentNode id="rowOneAd">
+          <ContentNode 
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" 
+          />
+            <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" 
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          />
+      </ContentNode>      
+
+      <ContentNode id="rowTwoAd">
+          <ContentNode
+          url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+          />
+      </ContentNode>
+
+        <ContentNode id="rowOneSports">
+          <ContentNode
+          url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4"
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+          />
+      </ContentNode>
+
+      <ContentNode id="rowTwoSports">
+          <ContentNode
+          url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+          />
+          <ContentNode
+            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+          />
+      </ContentNode>
+
+  </children>
+
+</component>
+  

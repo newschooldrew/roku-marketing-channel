@@ -1,0 +1,62 @@
+<component name="OnStage" extends="RowList" >
+
+<interface> 
+  <field id="itemContent" type="node" onChange="readFocus"/> 
+  <field id="rowFocusPercent" type="float" onChange="changeFont"/>
+  <field id="itemHasFocus" type="boolean" onChange="changeFont" />
+</interface>
+
+<script type="text/brightscript" >
+<![CDATA[
+
+    function init()
+	    m.top.itemComponentName = "RowListItem"
+	    m.top.numRows = 2
+	    m.top.itemSize = [270 * 3 + 20 * 2, 343]
+	    m.top.rowHeights = [325]
+	    m.top.rowItemSize = [ [270, 178], [270, 178], [270, 178] ]
+	    m.top.itemSpacing = [ 40, 0 ]
+	    m.top.rowItemSpacing = [ [20, 0] ]
+		m.top.rowLabelOffset = [ [0, 30] ]
+	    m.top.rowFocusAnimationStyle = "floatingFocus"
+		m.top.showRowLabel = [true, true]
+		m.top.focusBitmapBlendColor = "#05acea"
+		m.top.drawFocusFeedbackOnTop = false
+		m.top.drawFocusFeedback = true
+		m.top.useAtlas = false
+
+      m.onStageReader = createObject("roSGNode", "AttrReader")
+      m.onStageReader.observeField("content","GetRowListContent")
+      m.onStageReader.contenturi = "https://c.gumgum.com/ads/com/drew_test/roku_content/onStage.xml"
+      m.onStageReader.control = "RUN"
+
+    end function
+
+	function GetRowListContent() as object
+	            m.content = m.onStageReader.content
+
+                m.rowOneListContent = m.content.getChild(0)
+                m.rowTwoListContent = m.content.getChild(1)
+
+            myNode = CreateObject("roSGNode", "ContentNode")
+	    		lilNodeOne = myNode.CreateChild("ContentNode")
+		    		for i = 0 to m.rowOneListContent.getChildCount() - 1
+						data = m.rowOneListContent.getChild(i)
+							print "data is " data
+		            	item = lilNodeOne.CreateChild("RowListItemData")
+		            	item.posterUrl = data.HDGRIDPOSTERURL
+		            	item.labelText = data.title
+		    		end for
+		    	lilNodeTwo = myNode.CreateChild("ContentNode")
+	    			for i = 0 to m.rowTwoListContent.getChildCount() - 1
+						data = m.rowTwoListContent.getChild(i)
+							print "data is " data
+		            	item = lilNodeTwo.CreateChild("RowListItemData")
+		            	item.posterUrl = data.HDGRIDPOSTERURL
+		            	item.labelText = data.title
+		    		end for		    		
+			m.top.content = myNode
+	end function
+]]>
+</script>
+</component>

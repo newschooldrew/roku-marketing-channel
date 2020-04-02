@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- main node which handles home screen children -->
+<component name="HomeScene" extends="Scene" initialFocus="headerMarkupGrid">
+
+<interface> 
+  <field id="itemContent" type="node" onChange="readFocus"/> 
+  <field id="focusPercent" type="float" onChange="OnKeyEvent"/>
+  <field id="content" type="node" />
+  <field id="columnWidths" type="float" onChange="showSize"/>
+</interface>
+
+    <!-- main handler -->
+    <script type="text/brightscript" uri="pkg:/components/HomeScene.brs" />
+
+    <children>
+        <MarkupGrid
+            id="headerMarkupGrid"
+            translation = "[125, 50 ]" 
+            itemComponentName="TopNavItem"
+            itemSize="[200,50]"
+            itemSpacing = "[ 120, 10 ]" 
+            numRows="1"
+            numColumns = "4"
+            drawFocusFeedback="false"
+            focusable="true" 
+            />
+    	<Label
+            id="OnStageLabel"        
+		    translation="[110,160]"
+		    text="ON STAGE"
+	    >
+		 <Font role = "font" uri = "pkg:/font/Gotham-Bold.otf" size="144"/>
+        <OnStage
+            id="OnStage"
+            translation="[20,160]"
+            focusable="true"
+            useAtlas="false"
+            />
+	    </Label>
+
+        <Label
+            id="HackathonsLabel"
+		    translation="[110,160]"
+		    text="HACKATHONS"
+	    >
+		 <Font role = "font" uri = "pkg:/font/Gotham-Bold.otf" size="122"/>
+        <Hackathons
+            id="Hackathons"
+            translation="[20,160]"
+            focusable="true"
+            />
+        </Label>
+
+    	<Label
+            id="SizzleReelsLabel"
+		    translation="[110,160]"
+		    text="SIZZLE REELS"
+	    >
+		 <Font role = "font" uri = "pkg:/font/Gotham-Bold.otf" size="126"/>
+        <SizzleReels
+            id="SizzleReels"
+            translation="[20,160]"
+            focusable="true"
+            />
+        </Label>
+        
+    	<Label
+            id="InVideoLabel"
+		    translation="[110,160]"
+		    text="IN VIDEO"
+	    >
+		 <Font role = "font" uri = "pkg:/font/Gotham-Bold.otf" size="144"/>
+        <InVideo
+            id="InVideo"
+            translation="[20,160]"
+            focusable="true"
+            />
+        </Label>
+        <video id="myVideo" visible="false"/>
+         
+    </children> 
+</component>

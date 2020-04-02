@@ -1,0 +1,59 @@
+<component name="SizzleReels" extends="RowList" >
+
+<interface> 
+  <field id="itemContent" type="node" onChange="readFocus" /> 
+</interface>
+
+<script type="text/brightscript" >
+<![CDATA[
+
+    function init()
+	    m.top.itemComponentName = "RowListItem"
+	    m.top.numRows = 2
+	    m.top.itemSize = [270 * 3 + 20 * 2, 343]
+	    m.top.rowHeights = [325]
+	    m.top.rowItemSize = [ [270, 178], [270, 178], [270, 178] ]
+	    m.top.itemSpacing = [ 40, 0 ]
+	    m.top.rowItemSpacing = [ [20, 0] ]
+		m.top.rowLabelOffset = [ [0, 30] ]
+	    m.top.rowFocusAnimationStyle = "floatingFocus"
+		m.top.showRowLabel = [true, true]
+		m.top.focusBitmapBlendColor = "#05acea"
+		m.top.drawFocusFeedbackOnTop = false
+		m.top.drawFocusFeedback = true
+		m.top.useAtlas = false
+
+      m.SizzleReels = createObject("roSGNode", "AttrReader")
+      m.SizzleReels.observeField("content","GetRowListContent")
+      m.SizzleReels.contenturi = "https://c.gumgum.com/ads/com/drew_test/roku_content/sizzleReels.xml"
+      m.SizzleReels.control = "RUN"
+    end function
+
+	function GetRowListContent() as object
+            m.content = m.SizzleReels.content
+
+            m.rowOneListContent = m.content.getChild(0)
+   		    m.rowTwoListContent = m.content.getChild(1)
+
+            myNode = CreateObject("roSGNode", "ContentNode")
+	    		lilNodeOne = myNode.CreateChild("ContentNode")
+	    		lilNodeOne.title = "Row 1"
+		    		for i = 0 to m.rowOneListContent.getChildCount() - 1
+							data = m.rowOneListContent.getChild(i)
+		            	item = lilNodeOne.CreateChild("RowListItemData")
+		            	item.posterUrl = data.HDGRIDPOSTERURL
+		            	item.labelText = data.title
+		    		end for
+		    	lilNodeTwo = myNode.CreateChild("ContentNode")
+	    		lilNodeTwo.title = "Row 2"	
+		    		for i = 0 to m.rowTwoListContent.getChildCount() - 1
+							data = m.rowTwoListContent.getChild(i)
+		            	item = lilNodeTwo.CreateChild("RowListItemData")
+		            	item.posterUrl = data.HDGRIDPOSTERURL
+		            	item.labelText = data.title
+		    		end for		    		
+            m.top.content = myNode
+	end function
+]]>
+</script>
+</component>
